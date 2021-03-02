@@ -24,7 +24,6 @@
             "ssh_username": "{{user `ssh_username`}}",
             "ami_name": "csye6225_{{timestamp}}",
             "ami_description": "Ubuntu AMI for CSYE 6225",
-            "ami_users" : "205467980008",
             "launch_block_device_mappings": [
                 {
                     "device_name": "/dev/sda1",
