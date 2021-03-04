@@ -15,7 +15,7 @@
             "region": "{{user `aws_region`}}",
             "source_ami_filter":{
                 "owners" : [
-                    "099720109477"
+                    "{{user `owner`}}"
                 ]
             },
             "instance_type": "t2.micro",
@@ -24,7 +24,7 @@
             "ssh_username": "{{user `ssh_username`}}",
             "ami_name": "csye6225_{{timestamp}}",
             "ami_description": "Ubuntu AMI for CSYE 6225",
-            "ami_users" : "205467980008",
+            "ami_users" : "{{user `ami_users`}}",
             "launch_block_device_mappings": [
                 {
                     "device_name": "/dev/sda1",
@@ -39,10 +39,12 @@
         "type": "shell",
         "inline": [
           "curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -",
+          "sleep 5",
           "sudo apt-get install -y nodejs",
+          "sleep 5",
           "sudo apt-get install -y build-essential",
-          "sudo apt-get install -y zip unzip",
-          "sudo apt-get install -y mysql-server"
+          "sleep 5",
+          "sudo apt-get install -y zip unzip"
         ]
       }]
 }
