@@ -32,7 +32,6 @@ jobs:
           subnet_id: subnet-ac103ce1
           source_ami: ami-03d315ad33b9d49c4
           ami_users: 205467980008
-          owner: 099720109477
         with:
           command: build
           target: packer/ami.json
