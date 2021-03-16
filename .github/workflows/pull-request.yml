@@ -7,7 +7,7 @@ on:
 
 jobs:
   packer:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     name: packer
 
     steps:
@@ -26,6 +26,13 @@ jobs:
         uses: hashicorp/packer-github-actions@master
         env:
           PACKER_LOG: 1
+          aws_access_key: { secrets.AWS_ACCESS_KEY_DEV }
+          aws_secret_key: { secrets.AWS_SECRET_KEY_DEV }
+          aws_region: us-east-1
+          subnet_id: subnet-ac103ce1
+          source_ami: ami-03d315ad33b9d49c4
+          ami_users: 205467980008
+          owner: 099720109477
         with:
           command: build
           target: packer/ami.json
