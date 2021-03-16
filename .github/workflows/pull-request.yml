@@ -1,42 +1,38 @@
-name: Packer Validate on Pull Requests
+name: Packer
 
-# Controls when the action will run.
-# Triggers the workflow on push or pull request events but only for the main branch
 on:
-  # Workflow is triggered on pull requests
   pull_request:
     # Workflow will only be triggered for pull requests on "master" branch
     branches: [ master ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  validate:
-    # The type of runner that the job will run on
+  packer:
     runs-on: ubuntu-20.04
+    name: packer
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    # Ref: https://github.com/marketplace/actions/packer-github-actions
-    - name: Validate Packer Template
-      uses: hashicorp/packer-github-actions@master
-      with:
-        command: validate
-        arguments: # only validate syntax
-        target: packer/ami.json
-      env:
-        PACKER_LOG: 1 # enable debug log for packer
+      # validate templates
+      - name: Validate Template
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: validate
+          target: packer/ami.json
 
       # build artifact
-    - name: Build Artifact
-      uses: hashicorp/packer-github-actions@master
-      with:
-        command: build
-        arguments: "-color=false -on-error=abort"
-        target: packer/ami.json
-      env:
-        PACKER_LOG: 1
+      - name: Build Artifact
+        uses: hashicorp/packer-github-actions@master
+        env:
+          PACKER_LOG: 1
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_DEV }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_KEY_DEV }}
+          aws_region: us-east-1
+          subnet_id: subnet-ac103ce1
+          source_ami: ami-03d315ad33b9d49c4
+          ami_users: 205467980008
+        with:
+          command: build
+          target: packer/ami.json
+        
