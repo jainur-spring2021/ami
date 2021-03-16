@@ -57,6 +57,7 @@
           "sudo apt install ruby-full",
           "sleep 5",
           "sudo apt install wget",
+          "sleep 5",
           "cd /home/ubuntu",
           "wget https://aws-codedeploy-us-east-1.s3.region-identifier.amazonaws.com/latest/install",
           "sleep 5",
