@@ -26,8 +26,8 @@ jobs:
         uses: hashicorp/packer-github-actions@master
         env:
           PACKER_LOG: 1
-          aws_access_key: { secrets.AWS_ACCESS_KEY_DEV }
-          aws_secret_key: { secrets.AWS_SECRET_KEY_DEV }
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_DEV }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_KEY_DEV }}
           aws_region: us-east-1
           subnet_id: subnet-ac103ce1
           source_ami: ami-03d315ad33b9d49c4
