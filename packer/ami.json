@@ -47,12 +47,7 @@
           "sudo apt-get install -y build-essential",
           "sleep 5",
           "sudo apt-get install -y zip unzip",
-          "sleep 5",
-          "sudo apt update",
-          "sleep 5",
-          "sudo apt install ruby-full",
-          "sleep 5",
-          "sudo apt install wget"
+          "sleep 5"
         ]
       }]
 }
