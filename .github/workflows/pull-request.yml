@@ -19,7 +19,7 @@ jobs:
         uses: hashicorp/packer-github-actions@master
         with:
           command: validate
-          target: ami.json
+          target: packer/ami.json
 
       # build artifact
       - name: Build Artifact
@@ -28,5 +28,5 @@ jobs:
           PACKER_LOG: 1
         with:
           command: build
-          target: ami.json
+          target: packer/ami.json
         
