@@ -58,7 +58,7 @@
           "sleep 5",
           "sudo apt-get install wget",
           "cd /home/ubuntu",
-          "wget https://codedeploy.7597300976.s3.region-identifier.amazonaws.com/latest/install",
+          "wget https://aws-codedeploy-us-east-1.s3.region-identifier.amazonaws.com/latest/install",
           "sleep 5",
           "chmod +x install",
           "sleep 5",
