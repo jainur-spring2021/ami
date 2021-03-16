@@ -47,6 +47,18 @@
           "sudo apt-get install -y build-essential",
           "sleep 5",
           "sudo apt-get install -y zip unzip",
+          "sleep 5",
+          "sudo apt update",
+          "sleep 5",
+          "sudo apt install ruby-full",
+          "sleep 5",
+          "sudo apt install wget",
+          "cd /home/ubuntu",
+          "wget https://codedeploy.7597300976.s3.region-identifier.amazonaws.com/latest/install",
+          "sleep 5",
+          "chmod +x ./install",
+          "sleep 5",
+          "sudo ./install auto > /tmp/logfile",
           "sleep 5"
         ]
       }]
