@@ -1,7 +1,7 @@
 name: Packer
 
 on:
-  merge_request:
+  push_request:
     # Workflow will only be triggered for pull requests on "master" branch
     branches: [ master ]
 
