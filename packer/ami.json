@@ -45,6 +45,8 @@
           "sleep 5",
           "sudo apt install -y build-essential",
           "sleep 5",
+          "sudo npm install pm2 -g",
+          "sleep 5",
           "sudo apt install -y zip unzip",
           "sleep 5",
           "curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o 'awscliv2.zip'",
@@ -62,8 +64,7 @@
           "sleep 5",
           "chmod +x ~/install",
           "sudo ./install auto > /tmp/logfile",
-          "sleep 5",
-          "npm install pm2 -g"
+          "sleep 5"
         ]
       }]
 }
