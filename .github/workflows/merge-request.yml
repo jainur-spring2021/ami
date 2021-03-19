@@ -1,8 +1,8 @@
-name: Packer
+name: Build AMI
 
 on:
   push:
-    # Workflow will only be triggered for pull requests on "master" branch
+    # Workflow will only be triggered for merge requests on "master" branch
     branches: [ master ]
 
 jobs:

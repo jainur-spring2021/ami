@@ -1,4 +1,4 @@
-name: Packer
+name: Validate AMI
 
 on:
   pull_request:
