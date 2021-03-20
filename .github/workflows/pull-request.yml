@@ -1,4 +1,4 @@
-name: Packer
+name: Validate AMI
 
 on:
   pull_request:
@@ -19,20 +19,5 @@ jobs:
         uses: hashicorp/packer-github-actions@master
         with:
           command: validate
-          target: packer/ami.json
-
-      # build artifact
-      - name: Build Artifact
-        uses: hashicorp/packer-github-actions@master
-        env:
-          PACKER_LOG: 1
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_DEV }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_KEY_DEV }}
-          aws_region: us-east-1
-          subnet_id: subnet-ac103ce1
-          source_ami: ami-03d315ad33b9d49c4
-          ami_users: 205467980008
-        with:
-          command: build
           target: packer/ami.json
         

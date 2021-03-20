@@ -6,7 +6,6 @@
         "subnet_id": "{{env `subnet_id`}}",
         "source_ami": "{{env `source_ami`}}",
         "ssh_username": "ubuntu",
-        "owner": "{{env `owner`}}",
         "ami_users": "{{env `ami_users`}}"
     },
     "builders": [
@@ -25,7 +24,7 @@
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "{{user `ssh_username`}}",
             "ami_name": "csye6225_{{timestamp}}",
-            "ami_description": "Ubuntu AMI for CSYE 6225",
+            "ami_description": "Ubuntu AMI for CSYE 6225 Production",
             "ami_users" : "{{user `ami_users`}}",
             "launch_block_device_mappings": [
                 {
@@ -45,6 +44,8 @@
           "sudo apt install -y nodejs",
           "sleep 5",
           "sudo apt install -y build-essential",
+          "sleep 5",
+          "sudo npm install pm2 -g",
           "sleep 5",
           "sudo apt install -y zip unzip",
           "sleep 5",
