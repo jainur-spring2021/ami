@@ -7,3 +7,4 @@ An Amazon Machine Image (AMI) provides the information required to launch an ins
 3. Validate the ami.json file by running 'packer validate packer/ami.json' command.
 4. To create the AMI run 'packer/buildAmi.sh'.
 
+# update
